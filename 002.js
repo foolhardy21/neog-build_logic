@@ -58,10 +58,35 @@ const charAt = (str, index) => str[index]
 console.log(charAt('neogCamp',4))
 
 //6
-const compareDates = (d1, d2) => {
-    const d1Time = new Date(d1).getTime()
-    const d2Time = new Date(d2).getTime()
-    if(d1Time <= d2Time) return d1
-    else return d2
-} 
-console.log(compareDates('05/01/2021','04/01/2021'))
+const compareDates = (d1, d2) => (new Date(d1) <= new Date(d2)) ? d1 : d2
+console.log(compareDates('06/01/2021','05/02/2021'))
+
+
+//ADVANCED
+//1
+const encodeString = str => {
+    let newstrArr = []
+    for(let i = 0 ; i<str.length; i++) {
+        newstrArr.push(String.fromCharCode(str.charCodeAt(i)+2))
+    }
+    return newstrArr.join('')
+}
+console.log(encodeString('neogcamp'))
+
+//2
+const capitalize = str => str.split(' ')
+    .map(word => word[0].toUpperCase()+word.slice(1,))
+    .join(' ')
+
+console.log(capitalize('we are neogrammars'))
+
+//3
+const sortArr = arr => arr.sort((a,b) => a-b)
+console.log(sortArr([100,83,32,9,45,61]))
+
+//4
+const reverseWord = str =>
+    str.split(' ').map(word => 
+        word.split('').reverse().join('')
+    ).join(' ')
+console.log(reverseWord('we are neogrammars'))
