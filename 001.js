@@ -98,6 +98,17 @@ const fibonacci = (num) => {
 }
 // console.log(fibonacci(10))
 
+//5
+const findFactorial = num => {
+    let factorial = 1
+    for(let i = num; i >= 1; i--) {
+        factorial *= i
+    }
+    return factorial
+}
+console.log(findFactorial(5))
+
+//6
 const ifPrime = num => {
     for(let i = 2; i<=Math.sqrt(num); i++) {
         if(num%i === 0) {
@@ -108,6 +119,7 @@ const ifPrime = num => {
 }
 // console.log(ifPrime(18))
 
+//7
 const ifWeekday = day => {
     switch(day) {
         case 'Sunday':

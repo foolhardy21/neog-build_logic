@@ -89,3 +89,45 @@ const firstSixCapital = str => str.split('').map((char, index) => {
         else return char
     }).join('')
 console.log(firstSixCapital('tic tac toe is a fun game'))
+
+
+//ADVANCED
+//1
+const replaceChar = (str, c1, c2) => {
+    const c1regex = new RegExp(c1,'g')
+    return str.replace(c1regex, c2)
+} 
+console.log(replaceChar('apple','p','b'))
+
+//2
+const removeSpaces = str => str.split('')
+    .filter(char => char !== ' ')
+    .join('')
+console.log(removeSpaces('hi as afg a a aasadasd    '))
+
+//3
+const reverseSentence = str => str.split(' ').reverse().join(' ')
+console.log(reverseSentence('welcome to neog camp'))
+
+//4
+const maxChar = str => {
+    const count = {}
+    for(const char of str) {
+        count[char] = count[char] ? count[char]+1 : 1
+    }
+    const keys = Object.keys(count)
+    const values = Object.values(count)
+    return keys[values.indexOf(Math.max(...values))]
+}
+console.log(maxChar('hello how hare hyou'))
+
+//5
+const toggleCase = str => str.split('').map((char, index) => 
+    (index%2 !== 0) ? char.toUpperCase() : char).join('')
+console.log(toggleCase('neog camp'))
+
+//6
+const removeWord = (str, word) => str.split(' ')
+    .filter(currWord => currWord !== word)
+    .join(' ')
+console.log(removeWord('how was your day','how'))
