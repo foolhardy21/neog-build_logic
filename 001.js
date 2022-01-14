@@ -20,21 +20,32 @@ const checkOddEven = () => {
 
 //3
 const findMinMax = (num1, num2) => {
-    console.log(Math.max(num1,num2), Math.min(num1,num2))
+   console.log((num1 > num2) ? {max:num1, min: num2} : {max:num2, min: num1})
+    // console.log(Math.max(num1,num2), Math.min(num1,num2))
 }
 // findMinMax(129,251)
 
 //4
-const findMax = (num1, num2, num3) => {
-    console.log(Math.max(num1,num2, num3))
+const findMax = (...numArr) => {
+    let max = -1
+    for(const num of numArr) {
+        if(num > max) max = num
+    }
+    console.log(max)
+    // console.log(Math.max(num1,num2, num3))
 }
 // findMax(8, 23, 17)
 
 //5
-const findMin = (num1, num2, num3) => {
-    console.log(Math.min(num1,num2, num3))
+const findMin = (...numArr) => {
+    let min = numArr[0]
+    for(const num of numArr) {
+        if(num < min) min = num
+    }
+    console.log(min)
+    // console.log(Math.min(num1,num2, num3))
 }
-// findMin(35, 29, 46)
+findMin(35, 29, 46)
 
 //6
 const checkDays = (month) => {
