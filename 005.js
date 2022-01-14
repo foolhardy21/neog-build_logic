@@ -43,3 +43,18 @@ const countVowelsConsonants = str => ({
     consonants: str.length - str.toLowerCase().match(/[aeiou]/g).length
 })
 console.log(countVowelsConsonants('mango'))
+
+//7
+const shiftToRight = (arr,x) => {
+    for(let i = 0; i < x; i++) {
+        arr.unshift(arr.pop())
+    }
+    return arr
+}
+console.log(shiftToRight([1,2,3,4,5],2))
+
+//ADVANCED
+//1
+const addMatrixes = (arr1, arr2) => {
+    
+}

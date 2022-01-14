@@ -1,14 +1,14 @@
 //1
-const studentDetails = require("./006data");
+const data = require("./006data");
 
 //1.1
-const getTotalMarks = arr => studentDetails.map(student => {
+const getTotalMarks = arr => arr.map(student => {
     return {
         name: student.name,
         totalMarks: student.maths+student.science+student.english+student.computer
     }
 }) 
-console.log(getTotalMarks(studentDetails))
+console.log(getTotalMarks(data.studentDetails))
 
 //1.2
 const highestMarks = arr => {
@@ -17,7 +17,7 @@ const highestMarks = arr => {
         .sort((a,b) => b.totalMarks-a.totalMarks)[0]
     
 }
-console.log(highestMarks(studentDetails))
+console.log(highestMarks(data.studentDetails))
 
 //1.3
 const lowestMarks = arr => {
@@ -26,11 +26,11 @@ const lowestMarks = arr => {
         .sort((a,b) => a.totalMarks-b.totalMarks)[0]
     
 }
-console.log(lowestMarks(studentDetails))
+console.log(lowestMarks(data.studentDetails))
 
 //1.4
 const averageComputer = arr => arr.reduce((total, curr) => total+curr.computer,0)/arr.length
-console.log(averageComputer(studentDetails))
+console.log(averageComputer(data.studentDetails))
 
 //1.5
 const gradeStudent = arr => {
@@ -50,10 +50,26 @@ const gradeStudent = arr => {
         return student
     })
 }
-console.log(gradeStudent(studentDetails))
+console.log(gradeStudent(data.studentDetails))
 
-//1.5
-const ifPassed = arr => {
-    return gradeStudent(arr).filter(student => student.grade !== 'D')
-}
-console.log(ifPassed(studentDetails))
+//1.6
+const ifPassed = arr => gradeStudent(arr).filter(student => student.grade !== 'D')
+console.log(ifPassed(data.studentDetails))
+
+
+//4
+//4.1
+const totalItems = arr => arr.reduce((total, curr) => total+curr.count,0)
+console.log(totalItems(data.cartItems))
+
+//4.2
+const totalValue = arr => arr.reduce((total, curr) => total+(curr.count*curr.price),0)
+console.log(totalValue(data.cartItems))
+
+//4.3
+const totalDiscount = arr => arr.reduce((total, curr) => total+(curr.count*curr.discount),0)
+console.log(totalDiscount(data.cartItems))
+
+//4.4
+const totalTax = arr => arr.reduce((total, curr) => total+(curr.count*curr.price),0)*.18
+console.log(totalTax(data.cartItems))
